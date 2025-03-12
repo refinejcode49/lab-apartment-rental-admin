@@ -1,8 +1,14 @@
-import listings from "../assets/listings.JSON";
+import listings from "../assets/listings.json";
 import Property from "./Property";
+import { useState } from "react";
 
 export const PropertiesList = () => {
-  const [list, setList] = useState(listings.result);
+  console.log(listings.results.length);
+  const [list, setList] = useState(listings.results);
+  function handleDelete(theApartId) {
+    const filteredList = listings.results.filter((apart) => apart.id !== theApartId);
+    setProperty = filteredList;
+}
 
   return (
     list.map((oneApart)=>{
