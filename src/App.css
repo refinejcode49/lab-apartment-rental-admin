@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 :root{
   --white: #FFFFFF;
   --ligth: #FDE7D8;
@@ -5,6 +6,9 @@
   --licorice: #180B02;
   --green: #5EFC8D;
   --red: #E83F6F;
+
+  --title-font: 'Playfair Display';
+  --main-font: 'Lato';
 }
 #root{
   display: grid;
@@ -16,6 +20,9 @@
     "footer footer";
   min-height: 100vh;
   width: 100%;
+  font-weight: 400;
+  font-family: var(--main-font), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--licorice);
 }
 .navbar{
   grid-area: navbar;
@@ -23,21 +30,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
   padding: 1rem;
   color: var(--licorice);
-  background-color: var(--ligth);
+  background-color: var(--pumpkin);
 }
-.sidebar{
-  grid-area: sidebar;
-  background-color: burlywood;
-}
-.main{
-  grid-area: main;
-}
-
 .logo-container{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -45,22 +44,39 @@
   height: 5rem;
 }
 .title{
+  font-size: 3rem;
   text-transform: uppercase;
   margin: 0.5rem 1rem;
+  font-family: var(--title-font), Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .subtitle{
   font-size: 1.2rem;
   line-height: 150%;
-  font-weight: 600;
+  font-weight: 400;
+  font-style: italic;
 }
-
+.subtitle::before{
+  content: "\201C";
+}
+.subtitle::after{
+  content: "\201D";
+}
+.sidebar{
+  grid-area: sidebar;
+  background-color: var(--white);
+}
+.main{
+  grid-area: main;
+  background-color: var(--ligth);
+}
 .card{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 1.5rem;
   margin: 1.5rem;
-  border: 2px solid black;
+  background-color: var(--white);
+  border: 0.0625rem solid var(--licorice);
   border-radius: 1rem;
   overflow: hidden;
 }
@@ -69,6 +85,7 @@
   justify-content: center;
   align-items: center;
   width: 50%;
+  height: 100%;
   overflow: hidden;
 }
 .image{
@@ -76,8 +93,15 @@
   height: auto;
 }
 .text-container{
+  height: 100%;
   width: 50%;
-  padding-right: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 0;
+}
+.card-title{
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--title-font), Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 /* Footer Component */
 .footer{
@@ -86,7 +110,7 @@
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-  background-color: darkred;
+  background-color: var(--pumpkin);
 }
 .footer-text{
   display: flex;
