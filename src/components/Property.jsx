@@ -1,8 +1,12 @@
+import { useState } from "react";
+
 const Property = (props) => {
     console.log(props);
-    const [property, setProperty] = userState(props.oneApart);
+    const [property, setProperty] = useState(props.oneApart);
 
-    
+    function handleDelete(id){
+      props.delete(id);
+    }
   return (
     <article id={property.id} className="card">
       <div className="image-container">

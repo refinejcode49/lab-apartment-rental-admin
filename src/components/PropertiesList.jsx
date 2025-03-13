@@ -3,19 +3,19 @@ import Property from "./Property";
 import { useState } from "react";
 
 export const PropertiesList = () => {
-  console.log(listings.results.length);
+  // console.log(listings.results.length);
   const [list, setList] = useState(listings.results);
+
   function handleDelete(theApartId) {
-    const filteredList = listings.results.filter((apart) => apart.id !== theApartId);
-    setProperty = filteredList;
-}
+    const filteredList = list.filter(
+      (apart) => apart.id !== theApartId
+    );
+    setList(filteredList);
+  }
 
-  return (
-    list.map((oneApart)=>{
-      return (
-        <Property key={oneApart.id} oneApart={oneApart}/>
-      )
-    })
-  )
-}
-
+  return list.map((oneApart) => {
+    return (
+      <Property key={oneApart.id} oneApart={oneApart} delete={handleDelete} />
+    );
+  });
+};
