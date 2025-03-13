@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 const Property = (props) => {
-    console.log(props);
+  
     const [property, setProperty] = useState(props.oneApart);
 
     function handleDelete(id){
       props.delete(id);
     }
   return (
+    <Link to={`/property/${property.id}`}>
     <article id={property.id} className="card">
       <div className="image-container">
         <img src={property.picture_url} alt={property.name} className="image"/>
@@ -20,6 +23,7 @@ const Property = (props) => {
         {property.host_identity_verified && <span>Verified</span> }
       </div>
     </article>
+    </Link>
   )
 }
 export default Property;
