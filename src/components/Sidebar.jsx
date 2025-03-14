@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 export const Sidebar = () => {
   return (
@@ -10,6 +10,11 @@ export const Sidebar = () => {
       <NavLink to="/about">
         <button>About</button>
       </NavLink>
+
+      <Link to="/">
+      <button>Add property
+        </button>
+      </Link>
     </aside>
   )
 }
