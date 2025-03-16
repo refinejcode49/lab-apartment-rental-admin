@@ -1,6 +1,6 @@
 import { PropertiesList } from "../components/PropertiesList";
 
-export const Homepage = () => {
+export const HomePage = () => {
   return (
     <>
       <main className="main">

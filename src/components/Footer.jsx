@@ -12,10 +12,9 @@ export const Footer = () => {
           <li className="footer-list-item">Terms</li>
           <li className="footer-list-item">Sitemap</li>
           <li className="footer-list-item">Privacy</li>
-          <li className="footer-list-item">Your Privacy Choices</li>
         </ul>
       </div>
-     {/*<div className="footer-actions">
+     <div className="footer-actions">
         <div className="language-container">
           <img src={globeIcon} alt="map icon" className="footer-icon"/>
           <select name="language" id="language" className="language">
@@ -43,7 +42,7 @@ export const Footer = () => {
           <img src={logoTwitter} alt="x twitter logo" className="footer-icon"/>
           <img src={logoInsta} alt="instagram logo" className="footer-icon"/>
         </div>
-      </div>*/}
+      </div>
     </footer>
   );
 };
