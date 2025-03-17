@@ -523,6 +523,8 @@ a {
   border-radius: 0.5rem;
 }
 
+/* ==> PropertyDetail Main <== */
+
 /* Footer Component */
 .footer {
   grid-area: footer;

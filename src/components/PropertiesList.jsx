@@ -1,5 +1,4 @@
 import { useState } from "react";
-import listings from "../assets/listings.json";
 import Property from "./Property";
 import searchIcon from "../assets/search-icon.svg";
 import houseIcon from "../assets/house-icon.svg";
@@ -8,8 +7,7 @@ import hostCheckIcon from "../assets/user-check-icon.svg";
 import pawIcon from "../assets/paw-icon.svg";
 import stopwatchIcon from "../assets/stopwatch-icon.svg";
 
-export const PropertiesList = () => {
-  const [list, setList] = useState(listings.results);
+export const PropertiesList = ({list, setList}) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   function handleChange(e) {
