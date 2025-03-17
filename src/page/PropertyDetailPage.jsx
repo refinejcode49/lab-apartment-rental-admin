@@ -1,6 +1,8 @@
 import React from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import listings from "../assets/listings.json";
+import { PropertyDetail } from '../components/PropertyDetail';
+
 
 export const PropertyDetailPage = () => {
     const {id} = useParams();
@@ -10,7 +12,7 @@ export const PropertyDetailPage = () => {
  
     return (
     propertyDetail !== undefined ? 
-    <div>{propertyDetail.name}{propertyDetail.id}</div>
+    <PropertyDetail propertyDetail={propertyDetail}/>
     : 
     <Navigate to="/pagenotfound"/>
   )
