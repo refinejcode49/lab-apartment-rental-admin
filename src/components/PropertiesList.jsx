@@ -6,8 +6,7 @@ import houseIcon from "../assets/house-icon.svg";
 import bedIcon from "../assets/bed-icon.svg";
 import hostCheckIcon from "../assets/user-check-icon.svg";
 import pawIcon from "../assets/paw-icon.svg";
-import stopwatchIcon from "../assets/stopwatch-icon.svg"
-
+import stopwatchIcon from "../assets/stopwatch-icon.svg";
 
 export const PropertiesList = () => {
   const [list, setList] = useState(listings.results);
@@ -41,29 +40,47 @@ export const PropertiesList = () => {
             onChange={handleChange}
           />
           <button className="filter-btn-search" onClick={handleSearch}>
-            <img src={searchIcon} alt="searchh icon" className="filter-icon"/>
+            <img src={searchIcon} alt="searchh icon" className="filter-icon" />
           </button>
         </div>
         <button className="filter-btn">
-<img src={houseIcon} alt="property icon" className="filter-icon"/>
+          <img src={houseIcon} alt="property icon" className="filter-icon" />
         </button>
         <button className="filter-btn">
-<img src={bedIcon} alt="bed icon" className="filter-icon"/>
+          <img src={bedIcon} alt="bed icon" className="filter-icon" />
         </button>
         <button className="filter-btn">
-<img src={hostCheckIcon} alt="user check icoon" className="filter-icon"/>
+          <img
+            src={hostCheckIcon}
+            alt="user check icoon"
+            className="filter-icon"
+          />
         </button>
         <button className="filter-btn">
-          <img src={pawIcon} alt="Pet's friendly icon" className="filter-icon"/>
+          <img
+            src={pawIcon}
+            alt="Pet's friendly icon"
+            className="filter-icon"
+          />
         </button>
         <button className="filter-btn">
-          <img src={stopwatchIcon} alt="instant bookable icon" className="filter-icon"/>
+          <img
+            src={stopwatchIcon}
+            alt="instant bookable icon"
+            className="filter-icon"
+          />
         </button>
         <button className="filter-btn">Clear</button>
       </div>
-      {list.map((oneApart) => (
-        <Property key={oneApart.id} oneApart={oneApart} delete={handleDelete} />
-      ))}
+      <div className="card-list-container">
+        {list.map((oneApart) => (
+          <Property
+            key={oneApart.id}
+            oneApart={oneApart}
+            delete={handleDelete}
+          />
+        ))}
+      </div>
     </>
   );
 };

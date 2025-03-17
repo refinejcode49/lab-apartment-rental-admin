@@ -41,18 +41,21 @@ const Property = (props) => {
               Price: <span className="bold">{property.price}</span>
             </p>
           </div>
+          <hr className="card-divider" />
           <div className="card-host-container">
             {/* <div className="card-host-avatar" style={{ backgroundImage: `url(${property.host_url})` }}></div> */}
             <p className="card-host-name">
               Host: <span className="bold">{property.host_name}</span>
             </p>
+            <p className="card-host-from">(Since {property.host_since})</p>
           </div>
-          <div className="card-delete-container"></div>
         </article>
       </Link>
-      <button className="btn-delete" onClick={handleDelete}>
-        <img src={deleteIcon} alt="delete icon" className="icon" />
-      </button>
+      <div className="btn-delete-container">
+        <button className="btn-delete" onClick={handleDelete}>
+          <img src={deleteIcon} alt="delete icon" className="icon" />
+        </button>
+      </div>
     </div>
   );
 };
