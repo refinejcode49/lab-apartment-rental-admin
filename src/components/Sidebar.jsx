@@ -19,45 +19,50 @@ export const Sidebar = () => {
 
   function handleSearch(){
     console.log("SearchTerm = ", searchTerm);
+    setSearchTerm("");
   }
 
   function handleModal() {
-    isOpen ? setIsOpen(false) : setIsOpen(true)
+    isOpen ? setIsOpen(false) : setIsOpen(true);
+    setSearchTerm("");
   }
 
   return (
     <>
-      <aside className="sidebar-mobile">
+      <aside className="sidebar">
+        <p className="menu-title">Admin menu</p>
+        <hr className="menu-divider"/>
         <NavLink to="/">
-          <button className="btn-mobile">
-            <img src={dashboardIcon} alt="Dashboard icon" className="icon-small"/>
+          <button className="btn-menu">
+            <img src={dashboardIcon} alt="Dashboard icon" className="menu-icon"/>
             Dashboard
           </button>
         </NavLink>
         <NavLink to="/">
-          <button className="btn-mobile">
-            <img src={addIcon} alt="Add a property icon" className="icon-small"/>
+          <button className="btn-menu">
+            <img src={addIcon} alt="Add a property icon" className="menu-icon"/>
             Add a property
           </button>
         </NavLink>
         <div className="navlink-like">
-          <button className="btn-mobile" onClick={handleModal}>
-            <img src={searchIcon} alt="Search icon" className="icon-small"/>
+          <button className="btn-menu" onClick={handleModal}>
+            <img src={searchIcon} alt="Search icon" className="menu-icon"/>
             Search
           </button>
         </div>
         <NavLink to="/about">
-          <button className="btn-mobile">
-            <img src={aboutIcon} alt="About us icon" className="icon-small"/>
+          <button className="btn-menu">
+            <img src={aboutIcon} alt="About us icon" className="menu-icon"/>
             About
           </button>
         </NavLink>
+        <hr className="menu-divider"/>
       </aside>
       {
         isOpen &&
         <div className="search-modal">
           <button className="btn-close-modal" onClick={handleModal}>
-            <img src={closeIcon} alt="Close icon" className="icon-small"/>
+            <img src={closeIcon} alt="Close icon" className="menu-icon"/>
           </button>
           <div className="form-control">
             <input type="text" name="mobile-search" id="mobile-search" placeholder="Search a property" 
