@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage data={data} setData={setData}/>} />
         <Route path="/about" element={<About />} />
-        <Route path="/property/:id" element={<PropertyDetailPage />} />
+        <Route path="/property/:id" element={<PropertyDetailPage data={data} setData={setData}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
