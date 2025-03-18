@@ -281,18 +281,17 @@ const AddProperty = () => {
       maxNight,
       availability,
     };
-    /*const handleAmenity = (event) => {
-            const { value, checked } = event.target;
-            if (checked) {
-                setAmenities([...amenities, value]);
-            } else {
-                setAmenities(amenities.filter((amenity) => amenity !== value));
-            }
-        };*/
+    
   }
 
-  function handleAmenity() {
+  function handleAmenity(e) {
     console.log("handle amenities");
+    const { value, checked } = e.target;
+    if (checked) {
+        setAmenities([...amenities, value]);
+    } else {
+        setAmenities(amenities.filter((amenity) => amenity !== value));
+    }
   }
 
   return (
