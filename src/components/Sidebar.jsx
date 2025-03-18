@@ -38,7 +38,7 @@ export const Sidebar = () => {
             Dashboard
           </button>
         </NavLink>
-        <NavLink to="/">
+        <NavLink to="/add-property">
           <button className="btn-menu">
             <img src={addIcon} alt="Add a property icon" className="menu-icon"/>
             Add a property
