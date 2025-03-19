@@ -659,6 +659,39 @@ a {
   overflow: hidden;
 }
 
+.detail-availabilities-containter{
+  grid-area: availabilities;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+}
+.detail-availabilities-layout{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+}
+.detail-min-max-container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+.detail-availabilities-now-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
 .detail-button-container{
   grid-area: detail-admin;
   padding: 1rem;
@@ -707,7 +740,84 @@ a {
 }
 .btn-danger{
   background-color: var(--danger);
+}/*about page*/
+.about {
+  background-color: var(--bg-page-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.about h2 {
+  font-weight: 400;
+}
+
+.project-description {
+  padding: 2rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0.2rem solid var(--bg-nav-button-grey);
+  border-radius: 1.5rem;
+  background-color: var(--white)
+}
+
+.title {
+  padding-bottom: 1rem;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /*background-color: var(--white);*/
+  margin: 2rem;
+}
+
+.team-info h2 {
+  display: flex;
+}
+
+.jennifer, .ronan {
+  padding: 2rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 0.2rem solid var(--bg-nav-button-grey);
+  border-radius: 1.5rem;
+  background-color: var(--white);
+}
+.ronan img {
+  padding: 1rem;
+  margin: 0.7rem;
+}
+
+.jennifer img {
+  padding: 1rem;
+  margin: 0.7rem;
+}
+.name-team {
+  font-size: 1.5rem;
+  /*font-weight: 700;*/
+}
+
+.about-btn {
+  background-color: var(--bg-nav-button-grey);
+  color: var(--main-dark);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.7rem;
+  margin: 0.7rem;
+  font-size: 1rem;
+}
+
 /* Footer Component */
 .footer {
   grid-area: footer;
@@ -1040,6 +1150,7 @@ a {
       "detail-info detail-price"
       "detail-description detail-description"
       "detail-tag detail-tag"
+      "availabilities availabilities"
       "detail-admin detail-admin";
     height: fit-content;
     align-content: top;
@@ -1084,83 +1195,4 @@ a {
     align-items: flex-end;
   }
 
-  /*about page*/
-  .about {
-    background-color: var(--bg-menu-grey);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .about h2 {
-    font-weight: 400;
-  }
-
-  .project-description {
-    padding: 2rem;
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 0.2rem solid var(--bg-nav-button-grey);
-    border-radius: 1.5rem;
-    background-color: var(--white)
-  }
-
-  .title {
-    padding-bottom: 1rem;
-  }
-
-  .team-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    /*background-color: var(--white);*/
-    margin: 2rem;
-  }
-
-  .team-info h2 {
-    display: flex;
-  }
-
-  .jennifer, .ronan {
-    padding: 2rem;
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border: 0.2rem solid var(--bg-nav-button-grey);
-    border-radius: 1.5rem;
-    background-color: var(--white);
-  }
-  .ronan img {
-    padding: 1rem;
-    margin: 0.7rem;
-  }
-   
-  .jennifer img {
-    padding: 1rem;
-    margin: 0.7rem;
-  }
-  .name-team {
-    font-size: 1.5rem;
-    /*font-weight: 700;*/
-  }
-
-  .about-btn {
-    background-color: var(--bg-nav-button-grey);
-    color: var(--main-dark);
-    border: none;
-    border-radius: 1rem;
-    padding: 0.7rem;
-    margin: 0.7rem;
-    font-size: 1rem;
-    
-  }
-  
 }

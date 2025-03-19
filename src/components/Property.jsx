@@ -28,14 +28,19 @@ const Property = (props) => {
             <h4 className="card-title">{property.name}</h4>
             <div className="location">
               <img src={locationIcon} alt="location icon" className="icon" />
-              {property.neighbourhood}
+              {(property.neighbourhood !== null && property.neighbourhood !== undefined && property.neighbourhood !== "") ? 
+                property.neighbourhood : property.host_location ? property.host_location : "Unknown"}
             </div>
           </div>
           <hr className="card-divider" />
           <div className="card-data-container">
             <p>
               Score:{" "}
-              <span className="bold">{property.review_scores_rating}</span>
+              {(property.review_scores_rating && property.review_scores_rating > 0) ?
+                <span className="bold">{property.review_scores_rating}</span>
+                :
+                <span className="bold">New</span>
+              }
             </p>
             <p>
               Price: <span className="bold">{property.price}</span>

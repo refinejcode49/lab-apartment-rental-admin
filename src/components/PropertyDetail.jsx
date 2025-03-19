@@ -2,16 +2,19 @@ import superHostIcon from "../assets/web-awesome-icon.svg";
 import hostVerified from "../assets/user-check-icon.svg";
 import editIcon from "../assets/pen-to-square-icon.svg";
 import deleteIcon from "../assets/trash-icon.svg";
+import availibilityTrueIcon from "../assets/square-check-icon.svg";
+import availibilityFalseIcon from "../assets/square-xmark-icon.svg";
 import { useNavigate } from "react-router-dom";
 
 export const PropertyDetail = ({ propertyDetail, data, setData }) => {
   let navigate = useNavigate();
 
-  function handleDelete(theApartId) {
+  async function  handleDelete(theApartId) {
     const filteredList = data.filter((apart) => apart.id !== theApartId);
-    setData(filteredList);
+    await setData(filteredList);
     navigate("/");
   }
+
   return (
     <div className="detail-container">
       <section className="detail-title-container">
@@ -32,7 +35,7 @@ export const PropertyDetail = ({ propertyDetail, data, setData }) => {
               {propertyDetail.neighbourhood}
             </p>
           )}
-          {propertyDetail.neighbourhood &&
+          {/* {propertyDetail.neighbourhood &&
             propertyDetail.neighbourhood_group_cleansed && (
               <span className="detail-info-location-divider"> - </span>
             )}
@@ -49,25 +52,39 @@ export const PropertyDetail = ({ propertyDetail, data, setData }) => {
             <p className="detail-info-location-item">
               {propertyDetail.neighbourhood_cleansed}
             </p>
-          )}
+          )} */}
         </div>
         <div className="detail-info-acommodates">
-          {propertyDetail.accomodates !== null &&
-          propertyDetail.accomodates > 1 ? (
-            <p>{propertyDetail.accommodates} guests</p>
+          {propertyDetail.accommodates !== null &&
+          propertyDetail.accommodates > 1 ? (
+            <p>{propertyDetail.accommodates} Guests</p>
           ) : (
-            <p>{propertyDetail.accommodates} guest</p>
+            <p>{propertyDetail.accommodates} Guest</p>
           )}
+          {propertyDetail.accommodates && (propertyDetail.bedrooms || propertyDetail.beds || propertyDetail.bathrooms_text) && 
+            <span className="detail-info-location-divider"> - </span>
+          }
+
           {propertyDetail.bedrooms !== null && propertyDetail.bedrooms > 1 ? (
-            <p>{propertyDetail.bedrooms} bedrooms</p>
+            <p>{propertyDetail.bedrooms} Bedrooms</p>
           ) : (
-            <p>{propertyDetail.bedrooms} bedroom</p>
+            <p>{propertyDetail.bedrooms} Bedroom</p>
           )}
+
+          {propertyDetail.bedrooms && (propertyDetail.beds || propertyDetail.bathrooms_text) && 
+            <span className="detail-info-location-divider"> - </span>
+          }
+
           {propertyDetail.beds !== null && propertyDetail.beds > 1 ? (
-            <p>{propertyDetail.beds} beds</p>
+            <p>{propertyDetail.beds} Beds</p>
           ) : propertyDetail.beds !== null ? (
-            <p>{propertyDetail.beds} bed</p>
+            <p>{propertyDetail.beds} Bed</p>
           ) : null}
+
+          {propertyDetail.beds && propertyDetail.bathrooms_text && 
+            <span className="detail-info-location-divider"> - </span>
+          }
+
           {propertyDetail.bathrooms_text && (
             <p>{propertyDetail.bathrooms_text}</p>
           )}
@@ -116,21 +133,51 @@ export const PropertyDetail = ({ propertyDetail, data, setData }) => {
             Price: <span className="bold">{propertyDetail.price}</span>
           </p>
           )}
-          {propertyDetail.review_scores_rating && (
+
           <p className="detail-score">
             Score:{" "}
-            <span className="bold">{propertyDetail.review_scores_rating}</span>
+            {(propertyDetail.review_scores_rating && propertyDetail.review_scores_rating > 0) ?
+              <span className="bold">{propertyDetail.review_scores_rating}</span>
+              :
+              <span className="bold">New</span>
+            }
+            
           </p>
-          )}
         </div>
         
       </section>
       <section className="detail-tag-container">
         <h2 className="detail-tag-title">What is this place offers</h2>
         <div className="detail-tag-list">
-          {propertyDetail.amenities.map((amenity, index) => (
+          {propertyDetail.amenities && propertyDetail.amenities.length > 0 ? 
+            propertyDetail.amenities.map((amenity, index) => (
             <span className="detail-tag" key={`amenity_n${index}`}>{amenity}</span>
-          ))}
+            ))
+            :
+            <span className="detail-tag">No information</span>
+          }
+        </div>
+      </section>
+      <section className="detail-availabilities-containter">
+        <div className="detail-availabilities-layout">
+          <div className="detail-min-max-container">
+            <p>Minimum nights : {propertyDetail.minimum_nights}</p>
+            <p>Maximum nights : {propertyDetail.maximum_nights}</p>
+          </div>
+          <div className="detail-availabilities-now-container">
+            {propertyDetail.has_availability == false && (
+              <>
+                <img src={availibilityFalseIcon} alt="Availability not checked" className="icon"/>
+                No instant availability
+              </>
+            )}
+            {propertyDetail.has_availability && (
+              <>
+                <img src={availibilityTrueIcon} alt="Availability checked" className="icon"/>
+                Instant availability
+              </>
+            )}
+          </div>
         </div>
       </section>
       <section className="detail-button-container">

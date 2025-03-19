@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import PropertyList from "../assets/listings.json";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Navbar } from "./Navbar";
 import { v4 as uuidv4 } from "uuid";
 
-const AddProperty = ({data ,setData}) => {
+const AddProperty = ({ data, setData }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [neighbordOverview, setNeighbordOverview] = useState("");
@@ -12,11 +10,12 @@ const AddProperty = ({data ,setData}) => {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [roomType, setRoomType] = useState("Entire home/apt");
+  const [accommodates, setAccommodates] = useState(1);
   const [numBathroom, setNumBathroom] = useState("");
   const [numBedroom, setNumBedroom] = useState("");
   const [numBedPerRoom, setNumBedPerRoom] = useState("");
   const [amenities, setAmenities] = useState("");
-  const [price, setPrice] = useState("0");
+  const [price, setPrice] = useState(0.0);
   const [minNight, setMinNight] = useState("");
   const [maxNight, setMaxNight] = useState("");
   const [availability, setAvailability] = useState(false);
@@ -267,10 +266,16 @@ const AddProperty = ({data ,setData}) => {
       name: name,
       description: description,
       neighborhood_overview: neighbordOverview,
-      picture_url: image,
+      picture_url: image.length <= 0 ? "https://dchba.org/wp-content/uploads/2020/06/house-placeholder.png" : image,
       neighbourhood: `${city}, ${country}`,
       room_type: roomType, //Private room || Entire home/apt
-      bathrooms_text: numBathroom <= 0 ? null : numBathroom > 1 ? `${numBathroom} baths` : "1 bath" ,
+      accommodates: accommodates,
+      bathrooms_text:
+        numBathroom <= 0
+          ? null
+          : numBathroom > 1
+          ? `${numBathroom} baths`
+          : "1 bath",
       bedrooms: Number(numBedroom),
       beds: Number(numBedPerRoom),
       amenities: amenities,
@@ -278,19 +283,26 @@ const AddProperty = ({data ,setData}) => {
       minimum_nights: Number(minNight),
       maximum_nights: Number(maxNight),
       has_availability: availability,
+      // default values
+      review_scores_rating: 0,
+      host_name: "John Doe",
+      host_since: "2010-06-21",
+      host_location: `${city}, ${country}`,
+      host_identity_verified: true,
+      host_is_superhost: true
     };
     console.log(newPropertyToAdd);
     setData([newPropertyToAdd, ...data]);
-    navigate('/');
+    navigate("/");
   }
 
   function handleAmenity(e) {
     console.log("handle amenities");
     const { value, checked } = e.target;
     if (checked) {
-        setAmenities([...amenities, value]);
+      setAmenities([...amenities, value]);
     } else {
-        setAmenities(amenities.filter((amenity) => amenity !== value));
+      setAmenities(amenities.filter((amenity) => amenity !== value));
     }
   }
 
@@ -322,7 +334,7 @@ const AddProperty = ({data ,setData}) => {
       </div>
 
       <div className="form-control">
-        <label htmlFor="neighbourhood-overview">neighbourhood Overview</label>
+        <label htmlFor="neighbourhood-overview">Neighbourhood Overview</label>
         <textarea
           name="neighbourhood-overview"
           placeholder="Type the overview of the property neighbourhood"
@@ -395,17 +407,16 @@ const AddProperty = ({data ,setData}) => {
       </div>
 
       <div className="form-control">
-        <label htmlFor="num-of-bathroom">Bathroom(s)</label>
+        <label htmlFor="num-of-bathroom">Accommodate(s)</label>
         <input
-          id="num-of-bathroom"
-          name="num-of-bathroom"
+          id="accommodates"
+          name="accommodates"
           type="number"
-          value={numBathroom}
-          onChange={(e) => setNumBathroom(e.target.value)}
-          min="0"
+          value={accommodates}
+          onChange={(e) => setAccommodates(e.target.value)}
+          min="1"
         />
       </div>
-
       <div className="form-control">
         <label htmlFor="num-of-bedroom">Bedroom(s)</label>
         <input
@@ -417,9 +428,8 @@ const AddProperty = ({data ,setData}) => {
           min="0"
         />
       </div>
-
       <div className="form-control">
-        <label htmlFor="num-of-bedroom-per-room">Number of Bedroom(s)</label>
+        <label htmlFor="num-of-bedroom-per-room">Number of bed(s)</label>
         <input
           id="num-of-bedroom-per-room"
           name="num-of-bedroom-per-room"
@@ -429,11 +439,21 @@ const AddProperty = ({data ,setData}) => {
           min="0"
         />
       </div>
+      <div className="form-control">
+        <label htmlFor="num-of-bathroom">Bathroom(s)</label>
+        <input
+          id="num-of-bathroom"
+          name="num-of-bathroom"
+          type="number"
+          value={numBathroom}
+          onChange={(e) => setNumBathroom(e.target.value)}
+          min="0"
+        />
+      </div>
 
       <label>
         Amenities:
         {amenitiesArr.map((oneAmenity, index) => {
-          // console.log("Mapping : ", oneAmenity, index);
           return (
             <div key={index}>
               <input
@@ -456,6 +476,7 @@ const AddProperty = ({data ,setData}) => {
           name="price"
           type="number"
           step="0.01"
+          min="0.00"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
@@ -492,18 +513,18 @@ const AddProperty = ({data ,setData}) => {
           value={maxNight}
           onChange={(e) => setMaxNight(e.target.value)}
         >
-            <option value="">--Please choose an option--</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="10+">10+</option>
+          <option value="">--Please choose an option--</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="10+">10+</option>
         </select>
       </div>
 
