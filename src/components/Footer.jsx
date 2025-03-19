@@ -3,6 +3,7 @@ import logoInsta from '../assets/instagram-icon.svg';
 import logoFacebook from '../assets/facebook-icon.svg';
 import globeIcon from '../assets/globe-icon.svg';
 import euroIcon from '../assets/euro-icon.svg';
+import { Link } from 'react-router-dom';
 export const Footer = () => {
   return (
     <footer className="footer">
@@ -12,6 +13,9 @@ export const Footer = () => {
           <li className="footer-list-item">Terms</li>
           <li className="footer-list-item">Sitemap</li>
           <li className="footer-list-item">Privacy</li>
+          <Link to="https://github.com/refinejcode49/lab-apartment-rental-admin">
+          <li className="footer-list-item">Github repo</li>
+          </Link>
         </ul>
       </div>
      <div className="footer-actions">
