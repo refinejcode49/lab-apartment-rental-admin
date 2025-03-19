@@ -128,8 +128,8 @@ export const PropertyDetail = ({ propertyDetail, data, setData }) => {
       <section className="detail-tag-container">
         <h2 className="detail-tag-title">What is this place offers</h2>
         <div className="detail-tag-list">
-          {propertyDetail.amenities.map((amenity) => (
-            <span className="detail-tag">{amenity}</span>
+          {propertyDetail.amenities.map((amenity, index) => (
+            <span className="detail-tag" key={`amenity_n${index}`}>{amenity}</span>
           ))}
         </div>
       </section>

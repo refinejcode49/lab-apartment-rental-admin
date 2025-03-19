@@ -6,9 +6,8 @@ import { PropertyDetail } from '../components/PropertyDetail';
 
 export const PropertyDetailPage = ({data, setData}) => {
     const {id} = useParams();
-    const list = listings.results;
-
-    const propertyDetail = list.find((property)=>property.id == id);
+    console.log("new id = ", id);
+    const propertyDetail = data.find((property)=>property.id == id);
  
     return (
     propertyDetail !== undefined ? 

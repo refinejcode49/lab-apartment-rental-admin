@@ -1,9 +1,9 @@
 import React from 'react'
 import AddProperty from '../components/AddProperty'
 
-const CreateProperty = () => {
+const CreateProperty = ({data ,setData}) => {
   return (
-    <AddProperty />
+    <AddProperty data={data} setData={setData}/>
   )
 }
 

@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import PropertyList from "../assets/listings.json";
+import { useNavigate } from "react-router-dom";
 import { Navbar } from "./Navbar";
+import { v4 as uuidv4 } from "uuid";
 
-const AddProperty = () => {
+const AddProperty = ({data ,setData}) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [neighbordOverview, setNeighbordOverview] = useState("");
   const [image, setImage] = useState("");
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
-  const [neighborhood, setNeighborhood] = useState("");
-  const [propertyType, setPropertyType] = useState(
-    "--Choose a property type--"
-  );
-  const [roomType, setRoomType] = useState("--Choose a room type--");
+  const [roomType, setRoomType] = useState("Entire home/apt");
   const [numBathroom, setNumBathroom] = useState("");
   const [numBedroom, setNumBedroom] = useState("");
   const [numBedPerRoom, setNumBedPerRoom] = useState("");
@@ -260,28 +258,30 @@ const AddProperty = () => {
     '40" HDTV with Fire TV, standard cable, Netflix',
   ];
 
+  const navigate = useNavigate();
+
   function handleCreateProperty(event) {
     event.preventDefault();
     const newPropertyToAdd = {
-      name,
-      description,
-      neighbordOverview,
-      image,
-      country,
-      city,
-      neighborhood,
-      propertyType,
-      roomType,
-      numBathroom,
-      numBedroom,
-      numBedPerRoom,
-      amenities,
-      price,
-      minNight,
-      maxNight,
-      availability,
+      id: uuidv4(),
+      name: name,
+      description: description,
+      neighborhood_overview: neighbordOverview,
+      picture_url: image,
+      neighbourhood: `${city}, ${country}`,
+      room_type: roomType, //Private room || Entire home/apt
+      bathrooms_text: numBathroom <= 0 ? null : numBathroom > 1 ? `${numBathroom} baths` : "1 bath" ,
+      bedrooms: Number(numBedroom),
+      beds: Number(numBedPerRoom),
+      amenities: amenities,
+      price: `$${price}`,
+      minimum_nights: Number(minNight),
+      maximum_nights: Number(maxNight),
+      has_availability: availability,
     };
-    
+    console.log(newPropertyToAdd);
+    setData([newPropertyToAdd, ...data]);
+    navigate('/');
   }
 
   function handleAmenity(e) {
@@ -366,16 +366,6 @@ const AddProperty = () => {
         />
       </div>
 
-      <label>
-        <input
-          name="property-neighbourhood"
-          type="text"
-          placeholder="type the neighbourhood of the property"
-          value={neighborhood}
-          onChange={(e) => setNeighborhood(e.target.value)}
-        />
-      </label>
-
       <div className="form-control">
         <div>
           <input
@@ -383,7 +373,7 @@ const AddProperty = () => {
             id="private-room"
             name="room-type"
             placeholder="type of room"
-            value={roomType}
+            value="Private room"
             onChange={(e) => setRoomType(e.target.value)}
           />
           <label htmlFor="room-type">Private room</label>
@@ -397,7 +387,7 @@ const AddProperty = () => {
             id="entire-home"
             name="room-type"
             placeholder="type of room"
-            value={roomType}
+            value="Entire home/apt"
             onChange={(e) => setRoomType(e.target.value)}
           />
           <label htmlFor="entire-home">Entire home</label>
@@ -429,7 +419,7 @@ const AddProperty = () => {
       </div>
 
       <div className="form-control">
-        <label htmlFor="num-of-bedroom-per-room">Bedroom(s)</label>
+        <label htmlFor="num-of-bedroom-per-room">Number of Bedroom(s)</label>
         <input
           id="num-of-bedroom-per-room"
           name="num-of-bedroom-per-room"
@@ -465,6 +455,7 @@ const AddProperty = () => {
           id="price"
           name="price"
           type="number"
+          step="0.01"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
@@ -485,9 +476,9 @@ const AddProperty = () => {
           <option value="4">4</option>
           <option value="5">5</option>
           <option value="6">6</option>
-          <option value="7">8</option>
-          <option value="8">4</option>
-          <option value="9">5</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
           <option value="10">10</option>
           <option value="10+">10+</option>
         </select>
@@ -508,9 +499,9 @@ const AddProperty = () => {
             <option value="4">4</option>
             <option value="5">5</option>
             <option value="6">6</option>
-            <option value="7">8</option>
-            <option value="8">4</option>
-            <option value="9">5</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
             <option value="10">10</option>
             <option value="10+">10+</option>
         </select>
