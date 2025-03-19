@@ -8,16 +8,19 @@ export const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-text">
+      <div className="repo-link">
+      <Link to="https://github.com/refinejcode49/lab-apartment-rental-admin">
+          <p className="footer-list-item">Github repositery</p>
+          </Link>
+      </div>
         <p>© 2025 Rental Hack, Inc.</p>
         <ul className="footer-list">
           <li className="footer-list-item">Terms</li>
           <li className="footer-list-item">Sitemap</li>
           <li className="footer-list-item">Privacy</li>
-          <Link to="https://github.com/refinejcode49/lab-apartment-rental-admin">
-          <li className="footer-list-item">Github repo</li>
-          </Link>
         </ul>
       </div>
+
      <div className="footer-actions">
         <div className="language-container">
           <img src={globeIcon} alt="map icon" className="footer-icon"/>

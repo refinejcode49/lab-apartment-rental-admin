@@ -730,6 +730,14 @@ a {
   gap: 0.5rem;
 }
 
+.repo-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
 .footer-list {
   list-style: none;
   display: flex;
@@ -1078,20 +1086,81 @@ a {
 
   /*about page*/
   .about {
-    background-color: var(bg-page-grey-33);
+    background-color: var(--bg-menu-grey);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
+  .about h2 {
+    font-weight: 400;
+  }
+
   .project-description {
-    background-color: var(bg-page-grey-33);
+    padding: 2rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.2rem solid var(--bg-nav-button-grey);
+    border-radius: 1.5rem;
+    background-color: var(--white)
+  }
+
+  .title {
+    padding-bottom: 1rem;
   }
 
   .team-info {
-    background-color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /*background-color: var(--white);*/
+    margin: 2rem;
   }
 
+  .team-info h2 {
+    display: flex;
+  }
+
+  .jennifer, .ronan {
+    padding: 2rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 0.2rem solid var(--bg-nav-button-grey);
+    border-radius: 1.5rem;
+    background-color: var(--white);
+  }
+  .ronan img {
+    padding: 1rem;
+    margin: 0.7rem;
+  }
+   
+  .jennifer img {
+    padding: 1rem;
+    margin: 0.7rem;
+  }
+  .name-team {
+    font-size: 1.5rem;
+    /*font-weight: 700;*/
+  }
+
+  .about-btn {
+    background-color: var(--bg-nav-button-grey);
+    color: var(--main-dark);
+    border: none;
+    border-radius: 1rem;
+    padding: 0.7rem;
+    margin: 0.7rem;
+    font-size: 1rem;
+    
+  }
   
 }
