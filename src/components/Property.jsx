@@ -1,14 +1,9 @@
-// import { useState } from "react";
 import { Link } from "react-router-dom";
 import locationIcon from "../assets/location-dot-icon.svg";
 import deleteIcon from "../assets/trash-icon.svg";
 
-const Property = ({oneApart, deleteApart}) => {
-  // const [property, setProperty] = useState(props.oneApart);
-
+const Property = ({ oneApart, deleteApart }) => {
   function handleLocalDelete(e) {
-    console.log("delete");
-    console.log(oneApart);
     e.stopPropagation();
     deleteApart(oneApart.id);
   }
@@ -19,30 +14,30 @@ const Property = ({oneApart, deleteApart}) => {
           <div
             className="card-image-container"
             style={{ backgroundImage: `url(${oneApart.picture_url})` }}
-          >
-            {/* <img
-            src={oneApart.picture_url}
-            alt={oneApart.name}
-            className="image"
-          /> */}
-          </div>
+          ></div>
           <div className="card-title-container">
             <h4 className="card-title">{oneApart.name}</h4>
             <div className="location">
               <img src={locationIcon} alt="location icon" className="icon" />
-              {(oneApart.neighbourhood !== null && oneApart.neighbourhood !== undefined && oneApart.neighbourhood !== "") ? 
-                oneApart.neighbourhood : oneApart.host_location ? oneApart.host_location : "Unknown"}
+              {oneApart.neighbourhood !== null &&
+              oneApart.neighbourhood !== undefined &&
+              oneApart.neighbourhood !== ""
+                ? oneApart.neighbourhood
+                : oneApart.host_location
+                ? oneApart.host_location
+                : "Unknown"}
             </div>
           </div>
           <hr className="card-divider" />
           <div className="card-data-container">
             <p>
               Score:{" "}
-              {(oneApart.review_scores_rating && oneApart.review_scores_rating > 0) ?
+              {oneApart.review_scores_rating &&
+              oneApart.review_scores_rating > 0 ? (
                 <span className="bold">{oneApart.review_scores_rating}</span>
-                :
+              ) : (
                 <span className="bold">New</span>
-              }
+              )}
             </p>
             <p>
               Price: <span className="bold">{oneApart.price}</span>
@@ -50,7 +45,6 @@ const Property = ({oneApart, deleteApart}) => {
           </div>
           <hr className="card-divider" />
           <div className="card-host-container">
-            {/* <div className="card-host-avatar" style={{ backgroundImage: `url(${oneApart.host_url})` }}></div> */}
             <p className="card-host-name">
               Host: <span className="bold">{oneApart.host_name}</span>
             </p>

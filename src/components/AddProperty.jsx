@@ -351,123 +351,123 @@ const AddProperty = ({ data, setData }) => {
           autocomplete="off"
         ></textarea>
       </div>
-    <div className="flex-col">
-      <div className="form-group">
-        <label htmlFor="image-url">Image URL</label>
-        <input
-          id="image-url"
-          name="image"
-          type="url"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-          autocomplete="off"
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="country">Country</label>
-        <input
-          id="country"
-          name="country"
-          type="text"
-          placeholder="Country"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-          autocomplete="off"
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="city">City</label>
-        <input
-          id="city"
-          name="city"
-          placeholder="City"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          autocomplete="off"
-        />
-      </div>
-
-      <div className="form-group-radio">
-        <p className="form-group-radio-title">Type of room : </p>
-        <div className="radio-control">
+      <div className="flex-col">
+        <div className="form-group">
+          <label htmlFor="image-url">Image URL</label>
           <input
-            type="radio"
-            id="private-room"
-            name="room-type"
-            placeholder="type of room"
-            value="Private room"
-            onChange={(e) => setRoomType(e.target.value)}
+            id="image-url"
+            name="image"
+            type="url"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            autocomplete="off"
           />
-          <label htmlFor="room-type">Private room</label>
         </div>
-        <div className="radio-control">
-          <input
-            type="radio"
-            id="entire-home"
-            name="room-type"
-            placeholder="type of room"
-            value="Entire home/apt"
-            onChange={(e) => setRoomType(e.target.value)}
-          />
-          <label htmlFor="entire-home">Entire home</label>
-        </div>
-      </div>
 
-      <div className="form-group">
-        <label htmlFor="accommodates">Accommodate(s)</label>
-        <input
-          id="accommodates"
-          name="accommodates"
-          type="number"
-          placeholder="1"
-          value={accommodates}
-          onChange={(e) => setAccommodates(e.target.value)}
-          min="1"
-          autocomplete="off"
-        />
+        <div className="form-group">
+          <label htmlFor="country">Country</label>
+          <input
+            id="country"
+            name="country"
+            type="text"
+            placeholder="Country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            autocomplete="off"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="city">City</label>
+          <input
+            id="city"
+            name="city"
+            placeholder="City"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            autocomplete="off"
+          />
+        </div>
+
+        <div className="form-group-radio">
+          <p className="form-group-radio-title">Type of room : </p>
+          <div className="radio-control">
+            <input
+              type="radio"
+              id="private-room"
+              name="room-type"
+              placeholder="type of room"
+              value="Private room"
+              onChange={(e) => setRoomType(e.target.value)}
+            />
+            <label htmlFor="room-type">Private room</label>
+          </div>
+          <div className="radio-control">
+            <input
+              type="radio"
+              id="entire-home"
+              name="room-type"
+              placeholder="type of room"
+              value="Entire home/apt"
+              onChange={(e) => setRoomType(e.target.value)}
+            />
+            <label htmlFor="entire-home">Entire home</label>
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="accommodates">Accommodate(s)</label>
+          <input
+            id="accommodates"
+            name="accommodates"
+            type="number"
+            placeholder="1"
+            value={accommodates}
+            onChange={(e) => setAccommodates(e.target.value)}
+            min="1"
+            autocomplete="off"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="num-of-bedroom">Bedroom(s)</label>
+          <input
+            id="num-of-bedroom"
+            name="num-of-bedroom"
+            type="number"
+            placeholder="0"
+            value={numBedroom}
+            onChange={(e) => setNumBedroom(e.target.value)}
+            min="0"
+            autocomplete="off"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="num-of-bedroom-per-room">Number of bed(s)</label>
+          <input
+            id="num-of-bedroom-per-room"
+            name="num-of-bedroom-per-room"
+            type="number"
+            placeholder="0"
+            value={numBedPerRoom}
+            onChange={(e) => setNumBedPerRoom(e.target.value)}
+            min="0"
+            autocomplete="off"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="num-of-bathroom">Bathroom(s)</label>
+          <input
+            id="num-of-bathroom"
+            name="num-of-bathroom"
+            type="number"
+            placeholder="0"
+            value={numBathroom}
+            onChange={(e) => setNumBathroom(e.target.value)}
+            min="0"
+            autocomplete="off"
+          />
+        </div>
       </div>
-      <div className="form-group">
-        <label htmlFor="num-of-bedroom">Bedroom(s)</label>
-        <input
-          id="num-of-bedroom"
-          name="num-of-bedroom"
-          type="number"
-          placeholder="0"
-          value={numBedroom}
-          onChange={(e) => setNumBedroom(e.target.value)}
-          min="0"
-          autocomplete="off"
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="num-of-bedroom-per-room">Number of bed(s)</label>
-        <input
-          id="num-of-bedroom-per-room"
-          name="num-of-bedroom-per-room"
-          type="number"
-          placeholder="0"
-          value={numBedPerRoom}
-          onChange={(e) => setNumBedPerRoom(e.target.value)}
-          min="0"
-          autocomplete="off"
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="num-of-bathroom">Bathroom(s)</label>
-        <input
-          id="num-of-bathroom"
-          name="num-of-bathroom"
-          type="number"
-          placeholder="0"
-          value={numBathroom}
-          onChange={(e) => setNumBathroom(e.target.value)}
-          min="0"
-          autocomplete="off"
-        />
-      </div>
-    </div>
       <div className="form-group-radio">
         <p className="form-group-radio-title">Amenities:</p>
         <div className="grid-col">
@@ -487,21 +487,21 @@ const AddProperty = ({ data, setData }) => {
           })}
         </div>
       </div>
-      
-        <div className="form-group">
-          <label htmlFor="price">Price</label>
-          <input
-            id="price"
-            name="price"
-            type="number"
-            step="0.01"
-            min="0.00"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            autocomplete="off"
-          />
-        </div>
-        <div className="flex-col">
+
+      <div className="form-group">
+        <label htmlFor="price">Price</label>
+        <input
+          id="price"
+          name="price"
+          type="number"
+          step="0.01"
+          min="0.00"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          autocomplete="off"
+        />
+      </div>
+      <div className="flex-col">
         <div className="form-group-select">
           <label htmlFor="min-nights">Choose the minimum of nights</label>
           <select

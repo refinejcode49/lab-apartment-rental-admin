@@ -267,13 +267,24 @@ export const EditProperty = ({ data, setData }) => {
 
     setName(theApartment.name && theApartment.name);
     setDescription(theApartment.description && theApartment.description);
-    setNeighbordOverview(theApartment.neighborhood_overview && theApartment.neighborhood_overview);
+    setNeighbordOverview(
+      theApartment.neighborhood_overview && theApartment.neighborhood_overview
+    );
     setImage(theApartment.picture_url && theApartment.picture_url);
-    setCountry(theApartment.neighbourhood && theApartment.neighbourhood.split(",")[1].trim());
-    setCity(theApartment.neighbourhood && theApartment.neighbourhood.split(",")[0].trim());
+    setCountry(
+      theApartment.neighbourhood &&
+        theApartment.neighbourhood.split(",")[1].trim()
+    );
+    setCity(
+      theApartment.neighbourhood &&
+        theApartment.neighbourhood.split(",")[0].trim()
+    );
     setRoomType(theApartment.room_type && theApartment.room_type);
     setAccommodates(theApartment.accommodates && theApartment.accommodates);
-    setNumBathroom(theApartment.bathrooms_text && Number(theApartment.bathrooms_text.split(" bath")[0]));
+    setNumBathroom(
+      theApartment.bathrooms_text &&
+        Number(theApartment.bathrooms_text.split(" bath")[0])
+    );
     setNumBedroom(theApartment.bedrooms && theApartment.bedrooms);
     setNumBedPerRoom(theApartment.beds && theApartment.beds);
     setAmenities(theApartment.amenities && theApartment.amenities);
@@ -322,7 +333,9 @@ export const EditProperty = ({ data, setData }) => {
     temporaryApt.maximum_nights = Number(maxNight);
     temporaryApt.instant_bookable = bookable;
     // console.log("new version of the apart before setting ", temporaryApt);
-    const updatedData = data.map(apartment => apartment.id == id ? temporaryApt : apartment);
+    const updatedData = data.map((apartment) =>
+      apartment.id == id ? temporaryApt : apartment
+    );
     setData(updatedData);
     navigate("/");
   }
@@ -516,7 +529,7 @@ export const EditProperty = ({ data, setData }) => {
         <p className="form-group-radio-title">Amenities:</p>
         <div className="grid-col">
           {amenitiesArr.map((oneAmenity, index) => {
-            if(amenities.find(amenity => amenity === oneAmenity)){
+            if (amenities.find((amenity) => amenity === oneAmenity)) {
               return (
                 <div key={`amenity_n${index}`}>
                   <input
@@ -544,7 +557,6 @@ export const EditProperty = ({ data, setData }) => {
                 </div>
               );
             }
-            
           })}
         </div>
       </div>

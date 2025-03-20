@@ -1,10 +1,7 @@
-import React from 'react'
-import AddProperty from '../components/AddProperty'
+import AddProperty from "../components/AddProperty";
 
-const CreateProperty = ({data ,setData}) => {
-  return (
-    <AddProperty data={data} setData={setData}/>
-  )
-}
+const CreateProperty = ({ data, setData }) => {
+  return <AddProperty data={data} setData={setData} />;
+};
 
-export default CreateProperty
+export default CreateProperty;

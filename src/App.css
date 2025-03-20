@@ -328,14 +328,15 @@ a {
 
 .search-modal {
   z-index: 9;
-  position: absolute;
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: var(--bg-page-grey-33);
   backdrop-filter: blur(0.35rem);
 }
@@ -976,7 +977,7 @@ a {
   align-self: flex-end;
   gap: 0.5rem;
   padding: 1rem;
-  padding-bottom: 5rem;
+  padding-bottom: 6rem;
   max-width: 100%;
   height: fit-content;
   color: var(--main-dark);

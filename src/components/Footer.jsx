@@ -1,18 +1,18 @@
-import logoTwitter from '../assets/x-twitter-icon.svg';
-import logoInsta from '../assets/instagram-icon.svg';
-import logoFacebook from '../assets/facebook-icon.svg';
-import globeIcon from '../assets/globe-icon.svg';
-import euroIcon from '../assets/euro-icon.svg';
-import { Link } from 'react-router-dom';
+import logoTwitter from "../assets/x-twitter-icon.svg";
+import logoInsta from "../assets/instagram-icon.svg";
+import logoFacebook from "../assets/facebook-icon.svg";
+import globeIcon from "../assets/globe-icon.svg";
+import euroIcon from "../assets/euro-icon.svg";
+import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-text">
-      <div className="repo-link">
-      <Link to="https://github.com/refinejcode49/lab-apartment-rental-admin">
-          <p className="footer-list-item">Github repositery</p>
+        <div className="repo-link">
+          <Link to="https://github.com/refinejcode49/lab-apartment-rental-admin">
+            <p className="footer-list-item">Github repositery</p>
           </Link>
-      </div>
+        </div>
         <p>© 2025 Rental Hack, Inc.</p>
         <ul className="footer-list">
           <li className="footer-list-item">Terms</li>
@@ -21,9 +21,9 @@ export const Footer = () => {
         </ul>
       </div>
 
-     <div className="footer-actions">
+      <div className="footer-actions">
         <div className="language-container">
-          <img src={globeIcon} alt="map icon" className="footer-icon"/>
+          <img src={globeIcon} alt="map icon" className="footer-icon" />
           <select name="language" id="language" className="language">
             <option value="english" selected>
               English
@@ -34,7 +34,7 @@ export const Footer = () => {
           </select>
         </div>
         <div className="currency-container">
-          <img src={euroIcon} alt="currenty logo" className="footer-icon"/>
+          <img src={euroIcon} alt="currenty logo" className="footer-icon" />
           <select name="currency" id="currency" className="currency">
             <option value="euro" selected>
               EUR
@@ -45,9 +45,9 @@ export const Footer = () => {
           </select>
         </div>
         <div className="network-container">
-          <img src={logoFacebook} alt="facebook logo" className="footer-icon"/>
-          <img src={logoTwitter} alt="x twitter logo" className="footer-icon"/>
-          <img src={logoInsta} alt="instagram logo" className="footer-icon"/>
+          <img src={logoFacebook} alt="facebook logo" className="footer-icon" />
+          <img src={logoTwitter} alt="x twitter logo" className="footer-icon" />
+          <img src={logoInsta} alt="instagram logo" className="footer-icon" />
         </div>
       </div>
     </footer>
