@@ -11,11 +11,13 @@ import { NotFound } from "./page/NotFound";
 import CreateProperty from "./page/CreateProperty"; 
 import UpdateProperty from "./page/UpdateProperty"; 
 import listings from "./assets/listings.json";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 function App() {
   const [data, setData] = useState(listings.results);
   return (
     <>
+      <ScrollToTop/>
       <Navbar />
       <Sidebar />
       <Routes>
