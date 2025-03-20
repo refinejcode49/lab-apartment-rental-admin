@@ -266,7 +266,10 @@ const AddProperty = ({ data, setData }) => {
       name: name,
       description: description,
       neighborhood_overview: neighbordOverview,
-      picture_url: image.length <= 0 ? "https://dchba.org/wp-content/uploads/2020/06/house-placeholder.png" : image,
+      picture_url:
+        image.length <= 0
+          ? "https://dchba.org/wp-content/uploads/2020/06/house-placeholder.png"
+          : image,
       neighbourhood: `${city}, ${country}`,
       room_type: roomType, //Private room || Entire home/apt
       accommodates: accommodates,
@@ -289,7 +292,7 @@ const AddProperty = ({ data, setData }) => {
       host_since: "2010-06-21",
       host_location: `${city}, ${country}`,
       host_identity_verified: true,
-      host_is_superhost: true
+      host_is_superhost: true,
     };
     console.log(newPropertyToAdd);
     setData([newPropertyToAdd, ...data]);
@@ -307,9 +310,9 @@ const AddProperty = ({ data, setData }) => {
   }
 
   return (
-    <form onSubmit={handleCreateProperty}>
-      <span>Add a property</span>
-      <div className="form-control">
+    <form onSubmit={handleCreateProperty} className="form-container">
+      <h2 className="detail-title">Add a property</h2>
+      <div className="form-group">
         <label htmlFor="name">Name</label>
         <input
           id="name"
@@ -321,7 +324,7 @@ const AddProperty = ({ data, setData }) => {
         />
       </div>
 
-      <div className="form-control">
+      <div className="form-group">
         <label htmlFor="description">Description</label>
         <textarea
           id="description"
@@ -333,8 +336,10 @@ const AddProperty = ({ data, setData }) => {
         ></textarea>
       </div>
 
-      <div className="form-control">
-        <label htmlFor="neighbourhood-overview">Neighbourhood Overview</label>
+      <div className="form-group">
+        <label htmlFor="neighbourhood-overview" className="label-xl">
+          Neighbourhood Overview
+        </label>
         <textarea
           name="neighbourhood-overview"
           placeholder="Type the overview of the property neighbourhood"
@@ -343,8 +348,8 @@ const AddProperty = ({ data, setData }) => {
           rows="5"
         ></textarea>
       </div>
-
-      <div className="form-control">
+    <div className="flex-col">
+      <div className="form-group">
         <label htmlFor="image-url">Image URL</label>
         <input
           id="image-url"
@@ -355,7 +360,7 @@ const AddProperty = ({ data, setData }) => {
         />
       </div>
 
-      <div className="form-control">
+      <div className="form-group">
         <label htmlFor="country">Country</label>
         <input
           id="country"
@@ -367,7 +372,7 @@ const AddProperty = ({ data, setData }) => {
         />
       </div>
 
-      <div className="form-control">
+      <div className="form-group">
         <label htmlFor="city">City</label>
         <input
           id="city"
@@ -378,8 +383,9 @@ const AddProperty = ({ data, setData }) => {
         />
       </div>
 
-      <div className="form-control">
-        <div>
+      <div className="form-group-radio">
+        <p className="form-group-radio-title">Type of room : </p>
+        <div className="radio-control">
           <input
             type="radio"
             id="private-room"
@@ -390,10 +396,7 @@ const AddProperty = ({ data, setData }) => {
           />
           <label htmlFor="room-type">Private room</label>
         </div>
-      </div>
-
-      <div className="form-control">
-        <div>
+        <div className="radio-control">
           <input
             type="radio"
             id="entire-home"
@@ -406,140 +409,149 @@ const AddProperty = ({ data, setData }) => {
         </div>
       </div>
 
-      <div className="form-control">
+      <div className="form-group">
         <label htmlFor="num-of-bathroom">Accommodate(s)</label>
         <input
           id="accommodates"
           name="accommodates"
           type="number"
+          placeholder="1"
           value={accommodates}
           onChange={(e) => setAccommodates(e.target.value)}
           min="1"
         />
       </div>
-      <div className="form-control">
+      <div className="form-group">
         <label htmlFor="num-of-bedroom">Bedroom(s)</label>
         <input
           id="num-of-bedroom"
           name="num-of-bedroom"
           type="number"
+          placeholder="0"
           value={numBedroom}
           onChange={(e) => setNumBedroom(e.target.value)}
           min="0"
         />
       </div>
-      <div className="form-control">
+      <div className="form-group">
         <label htmlFor="num-of-bedroom-per-room">Number of bed(s)</label>
         <input
           id="num-of-bedroom-per-room"
           name="num-of-bedroom-per-room"
           type="number"
+          placeholder="0"
           value={numBedPerRoom}
           onChange={(e) => setNumBedPerRoom(e.target.value)}
           min="0"
         />
       </div>
-      <div className="form-control">
+      <div className="form-group">
         <label htmlFor="num-of-bathroom">Bathroom(s)</label>
         <input
           id="num-of-bathroom"
           name="num-of-bathroom"
           type="number"
+          placeholder="0"
           value={numBathroom}
           onChange={(e) => setNumBathroom(e.target.value)}
           min="0"
         />
       </div>
+    </div>
+      <div className="form-group-radio">
+        <p className="form-group-radio-title">Amenities:</p>
+        <div className="grid-col">
+          {amenitiesArr.map((oneAmenity, index) => {
+            return (
+              <div key={`amenity_n${index}`}>
+                <input
+                  type="checkbox"
+                  value={oneAmenity}
+                  onChange={handleAmenity}
+                  id={`amenity_${index}`}
+                  name={`amenity_${index}`}
+                />
+                <label htmlFor={`amenity_${index}`}>{oneAmenity}</label>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      
+        <div className="form-group">
+          <label htmlFor="price">Price</label>
+          <input
+            id="price"
+            name="price"
+            type="number"
+            step="0.01"
+            min="0.00"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
+        <div className="flex-col">
+        <div className="form-group-select">
+          <label htmlFor="min-nights">Choose the minimum of nights</label>
+          <select
+            id="min-nights"
+            name="min-nights"
+            value={minNight}
+            onChange={(e) => setMinNight(e.target.value)}
+          >
+            <option value="">--Please choose an option--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="10+">10+</option>
+          </select>
+        </div>
 
-      <label>
-        Amenities:
-        {amenitiesArr.map((oneAmenity, index) => {
-          return (
-            <div key={index}>
-              <input
-                type="checkbox"
-                value={oneAmenity}
-                onChange={handleAmenity}
-                id={`amenity_${index}`}
-                name={`amenity_${index}`}
-              />
-              <label htmlFor={`amenity_${index}`}>{oneAmenity}</label>
-            </div>
-          );
-        })}
-      </label>
+        <div className="form-group-select">
+          <label htmlFor="max-nights">Choose the maximum of nights</label>
+          <select
+            id="max-night"
+            name="max-nights"
+            value={maxNight}
+            onChange={(e) => setMaxNight(e.target.value)}
+          >
+            <option value="">--Please choose an option--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="10+">10+</option>
+          </select>
+        </div>
 
-      <div className="form-control">
-        <label htmlFor="price">Price</label>
-        <input
-          id="price"
-          name="price"
-          type="number"
-          step="0.01"
-          min="0.00"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
+        <div className="form-group-check">
+          <label htmlFor="availability">Has availability</label>
+          <input
+            id="availability"
+            name="availability"
+            type="checkbox"
+            value={availability}
+            onChange={(e) => setAvailability(e.target.checked)}
+          />
+        </div>
       </div>
 
-      <div className="form-control">
-        <label htmlFor="min-nights">Choose the minimum of nights</label>
-        <select
-          id="min-nights"
-          name="min-nights"
-          value={minNight}
-          onChange={(e) => setMinNight(e.target.value)}
-        >
-          <option value="">--Please choose an option--</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="10+">10+</option>
-        </select>
-      </div>
-
-      <div className="form-control">
-        <label htmlFor="max-nights">Choose the maximum of nights</label>
-        <select
-          id="max-night"
-          name="max-nights"
-          value={maxNight}
-          onChange={(e) => setMaxNight(e.target.value)}
-        >
-          <option value="">--Please choose an option--</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="10+">10+</option>
-        </select>
-      </div>
-
-      <div className="form-control">
-        <label htmlFor="availability">Has availability</label>
-        <input
-          id="availability"
-          name="availability"
-          type="checkbox"
-          value={availability}
-          onChange={(e) => setAvailability(e.target.checked)}
-        />
-      </div>
-
-      <button type="submit">Add property</button>
+      <button type="submit" className="detail-btn btn-success">
+        Add property
+      </button>
     </form>
   );
 };
