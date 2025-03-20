@@ -14,11 +14,11 @@ const AddProperty = ({ data, setData }) => {
   const [numBathroom, setNumBathroom] = useState("");
   const [numBedroom, setNumBedroom] = useState("");
   const [numBedPerRoom, setNumBedPerRoom] = useState("");
-  const [amenities, setAmenities] = useState("");
+  const [amenities, setAmenities] = useState([]);
   const [price, setPrice] = useState(0.0);
   const [minNight, setMinNight] = useState("");
   const [maxNight, setMaxNight] = useState("");
-  const [availability, setAvailability] = useState(false);
+  const [bookable, setbookable] = useState(false);
 
   const amenitiesArr = [
     "Fire extinguisher",
@@ -285,7 +285,7 @@ const AddProperty = ({ data, setData }) => {
       price: `$${price}`,
       minimum_nights: Number(minNight),
       maximum_nights: Number(maxNight),
-      has_availability: availability,
+      instant_bookable: bookable,
       // default values
       review_scores_rating: 0,
       host_name: "John Doe",
@@ -294,13 +294,13 @@ const AddProperty = ({ data, setData }) => {
       host_identity_verified: true,
       host_is_superhost: true,
     };
-    console.log(newPropertyToAdd);
+    // console.log(newPropertyToAdd);
     setData([newPropertyToAdd, ...data]);
     navigate("/");
   }
 
   function handleAmenity(e) {
-    console.log("handle amenities");
+    // console.log("handle amenities");
     const { value, checked } = e.target;
     if (checked) {
       setAmenities([...amenities, value]);
@@ -410,7 +410,7 @@ const AddProperty = ({ data, setData }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="num-of-bathroom">Accommodate(s)</label>
+        <label htmlFor="accommodates">Accommodate(s)</label>
         <input
           id="accommodates"
           name="accommodates"
@@ -538,13 +538,13 @@ const AddProperty = ({ data, setData }) => {
         </div>
 
         <div className="form-group-check">
-          <label htmlFor="availability">Has availability</label>
+          <label htmlFor="bookable">Instant bookable</label>
           <input
-            id="availability"
-            name="availability"
+            id="bookable"
+            name="bookable"
             type="checkbox"
-            value={availability}
-            onChange={(e) => setAvailability(e.target.checked)}
+            value={bookable}
+            onChange={(e) => setbookable(e.target.checked)}
           />
         </div>
       </div>
