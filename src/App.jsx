@@ -15,6 +15,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 
 function App() {
   const [data, setData] = useState(listings.results);
+  // console.log("App => ",data);
   return (
     <>
       <ScrollToTop/>

@@ -1,15 +1,11 @@
 import { PropertiesList } from "../components/PropertiesList";
 
 export const HomePage = ({data, setData}) => {
-
-  function handleList(list){
-    setData(list);
-  }
-  console.log(data);
+  // console.log("HomePage => ", data);
   return (
     <>
       <main className="main">
-        <PropertiesList list={data} setList={handleList}/>
+        <PropertiesList list={data} setList={setData}/>
       </main>
     </>
   );

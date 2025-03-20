@@ -175,6 +175,9 @@ a {
   text-decoration: none;
   color: inherit;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #root {
@@ -191,6 +194,7 @@ a {
   font-weight: 400;
   font-family: var(--text-font), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--main-dark);
+  background-color: var(--bg-page-grey);
   overflow-x: hidden;
 }
 
@@ -385,6 +389,7 @@ a {
 .main {
   grid-area: main;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   gap: 0.5rem;
   padding: 0.5rem 0;

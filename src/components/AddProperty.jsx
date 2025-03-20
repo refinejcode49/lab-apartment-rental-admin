@@ -321,6 +321,7 @@ const AddProperty = ({ data, setData }) => {
           placeholder="Name of the property"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          autocomplete="off"
         />
       </div>
 
@@ -333,6 +334,7 @@ const AddProperty = ({ data, setData }) => {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Type a description of the property"
           rows="5"
+          autocomplete="off"
         ></textarea>
       </div>
 
@@ -346,6 +348,7 @@ const AddProperty = ({ data, setData }) => {
           value={neighbordOverview}
           onChange={(e) => setNeighbordOverview(e.target.value)}
           rows="5"
+          autocomplete="off"
         ></textarea>
       </div>
     <div className="flex-col">
@@ -357,6 +360,7 @@ const AddProperty = ({ data, setData }) => {
           type="url"
           value={image}
           onChange={(e) => setImage(e.target.value)}
+          autocomplete="off"
         />
       </div>
 
@@ -369,6 +373,7 @@ const AddProperty = ({ data, setData }) => {
           placeholder="Country"
           value={country}
           onChange={(e) => setCountry(e.target.value)}
+          autocomplete="off"
         />
       </div>
 
@@ -380,6 +385,7 @@ const AddProperty = ({ data, setData }) => {
           placeholder="City"
           value={city}
           onChange={(e) => setCity(e.target.value)}
+          autocomplete="off"
         />
       </div>
 
@@ -419,6 +425,7 @@ const AddProperty = ({ data, setData }) => {
           value={accommodates}
           onChange={(e) => setAccommodates(e.target.value)}
           min="1"
+          autocomplete="off"
         />
       </div>
       <div className="form-group">
@@ -431,6 +438,7 @@ const AddProperty = ({ data, setData }) => {
           value={numBedroom}
           onChange={(e) => setNumBedroom(e.target.value)}
           min="0"
+          autocomplete="off"
         />
       </div>
       <div className="form-group">
@@ -443,6 +451,7 @@ const AddProperty = ({ data, setData }) => {
           value={numBedPerRoom}
           onChange={(e) => setNumBedPerRoom(e.target.value)}
           min="0"
+          autocomplete="off"
         />
       </div>
       <div className="form-group">
@@ -455,6 +464,7 @@ const AddProperty = ({ data, setData }) => {
           value={numBathroom}
           onChange={(e) => setNumBathroom(e.target.value)}
           min="0"
+          autocomplete="off"
         />
       </div>
     </div>
@@ -488,6 +498,7 @@ const AddProperty = ({ data, setData }) => {
             min="0.00"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
+            autocomplete="off"
           />
         </div>
         <div className="flex-col">
