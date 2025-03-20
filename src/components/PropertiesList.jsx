@@ -98,7 +98,7 @@ export const PropertiesList = ({ list, setList, isOpen, setIsOpen }) => {
             className="filter-input"
             value={searchTerm}
             onChange={handleChange}
-            autocomplete="off"
+            autoComplete="off"
           />
           <button className="filter-btn-search" type="submit">
             <img src={searchIcon} alt="searchh icon" className="filter-icon" />
@@ -155,7 +155,7 @@ export const PropertiesList = ({ list, setList, isOpen, setIsOpen }) => {
               className="input-modal"
               value={searchTerm}
               onChange={handleChange}
-              autocomplete="off"
+              autoComplete="off"
             />
           </div>
           <button className="btn-modal" onClick={handleSearch}>

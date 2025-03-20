@@ -352,7 +352,7 @@ export const EditProperty = ({ data, setData }) => {
           placeholder="Name of the property"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          autocomplete="off"
+          autoComplete="off"
         />
       </div>
 
@@ -365,7 +365,7 @@ export const EditProperty = ({ data, setData }) => {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Type a description of the property"
           rows="5"
-          autocomplete="off"
+          autoComplete="off"
         ></textarea>
       </div>
 
@@ -379,7 +379,7 @@ export const EditProperty = ({ data, setData }) => {
           value={neighbordOverview}
           onChange={(e) => setNeighbordOverview(e.target.value)}
           rows="5"
-          autocomplete="off"
+          autoComplete="off"
         ></textarea>
       </div>
       <div className="flex-col">
@@ -391,7 +391,7 @@ export const EditProperty = ({ data, setData }) => {
             type="url"
             value={image}
             onChange={(e) => setImage(e.target.value)}
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
 
@@ -404,7 +404,7 @@ export const EditProperty = ({ data, setData }) => {
             placeholder="Country"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
 
@@ -416,7 +416,7 @@ export const EditProperty = ({ data, setData }) => {
             placeholder="City"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
 
@@ -482,7 +482,7 @@ export const EditProperty = ({ data, setData }) => {
             value={accommodates}
             onChange={(e) => setAccommodates(e.target.value)}
             min="1"
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <div className="form-group">
@@ -495,7 +495,7 @@ export const EditProperty = ({ data, setData }) => {
             value={numBedroom}
             onChange={(e) => setNumBedroom(e.target.value)}
             min="0"
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <div className="form-group">
@@ -508,7 +508,7 @@ export const EditProperty = ({ data, setData }) => {
             value={numBedPerRoom}
             onChange={(e) => setNumBedPerRoom(e.target.value)}
             min="0"
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <div className="form-group">
@@ -521,7 +521,7 @@ export const EditProperty = ({ data, setData }) => {
             value={numBathroom}
             onChange={(e) => setNumBathroom(e.target.value)}
             min="0"
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
       </div>
@@ -571,7 +571,7 @@ export const EditProperty = ({ data, setData }) => {
           min="0.00"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          autocomplete="off"
+          autoComplete="off"
         />
       </div>
       <div className="flex-col">
