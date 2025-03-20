@@ -155,6 +155,7 @@ export const PropertiesList = ({ list, setList, isOpen, setIsOpen }) => {
               className="input-modal"
               value={searchTerm}
               onChange={handleChange}
+              autocomplete="off"
             />
           </div>
           <button className="btn-modal" onClick={handleSearch}>
