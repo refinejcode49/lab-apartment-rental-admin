@@ -1,8 +1,8 @@
 import { EditProperty } from "../components/EditProperty"
 
-const UpdateProperty = () => {
+const UpdateProperty = ({data ,setData}) => {
   return (
-    <EditProperty/>
+    <EditProperty data={data} setData={setData}/>
   )
 }
 

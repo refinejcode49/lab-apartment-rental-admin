@@ -1194,7 +1194,9 @@ a {
     padding-bottom: 1rem;
   }
 
-
+  .form-group .label-xl {
+    top: -0.5rem;
+  }
 }
 
 @media (min-width: 1024px) {

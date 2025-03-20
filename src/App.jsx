@@ -23,7 +23,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/property/:id" element={<PropertyDetailPage data={data} setData={setData}/>} />
         <Route path="/add-property" element={<CreateProperty data={data} setData={setData}/>} />
-        <Route path="/edit-property" element={<UpdateProperty />} />
+        <Route path="/edit-property/:id" element={<UpdateProperty data={data} setData={setData}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

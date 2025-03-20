@@ -7,12 +7,16 @@ import availibilityFalseIcon from "../assets/square-xmark-icon.svg";
 import { useNavigate } from "react-router-dom";
 
 export const PropertyDetail = ({ propertyDetail, data, setData }) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   async function  handleDelete(theApartId) {
     const filteredList = data.filter((apart) => apart.id !== theApartId);
     await setData(filteredList);
     navigate("/");
+  }
+
+  function handleEdit(propertyId){
+    navigate(`/edit-property/${propertyId}`);
   }
 
   return (
@@ -165,16 +169,16 @@ export const PropertyDetail = ({ propertyDetail, data, setData }) => {
             <p>Maximum nights : {propertyDetail.maximum_nights}</p>
           </div>
           <div className="detail-availabilities-now-container">
-            {propertyDetail.has_availability == false && (
+            {propertyDetail.instant_bookable == false && (
               <>
                 <img src={availibilityFalseIcon} alt="Availability not checked" className="icon"/>
-                No instant availability
+                No instant bookable
               </>
             )}
-            {propertyDetail.has_availability && (
+            {propertyDetail.instant_bookable && (
               <>
                 <img src={availibilityTrueIcon} alt="Availability checked" className="icon"/>
-                Instant availability
+                Instant bookable
               </>
             )}
           </div>
@@ -184,7 +188,7 @@ export const PropertyDetail = ({ propertyDetail, data, setData }) => {
         <div className="detail-button-layout">
           <p className="detail-button-title">Admin control panel</p>
           <div className="detail-button-group">
-            <button className="detail-btn btn-success">
+            <button className="detail-btn btn-success" onClick={()=>handleEdit(propertyDetail.id)}>
               <img src={editIcon} alt="edit icon" className="icon" />
               Edit
             </button>
