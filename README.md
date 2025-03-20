@@ -10,7 +10,7 @@ This is one of our projects in the [Ironhack](https://www.ironhack.com/fr-en/web
   - [The challenge](#the-challenge)
   - [Deliverable Expected](#deliverable-expected)
   - [Links](#links)
-- [Author](#author)
+- [Authors](#authors)
   - [Jennifer MERAT](#jennifer-merat)
   - [Ronan CANNY](#ronan-canny)
 - [React + Vite](#react-+-vite)
