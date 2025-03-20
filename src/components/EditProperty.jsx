@@ -265,24 +265,24 @@ export const EditProperty = ({ data, setData }) => {
     // console.log("theApartment: ", theApartment);
     setTheApartToUpdate(theApartment);
 
-    setName(theApartment.name);
-    setDescription(theApartment.description);
-    setNeighbordOverview(theApartment.neighborhood_overview);
-    setImage(theApartment.picture_url);
+    setName(theApartment.name && theApartment.name);
+    setDescription(theApartment.description && theApartment.description);
+    setNeighbordOverview(theApartment.neighborhood_overview && theApartment.neighborhood_overview);
+    setImage(theApartment.picture_url && theApartment.picture_url);
     setCountry(theApartment.neighbourhood && theApartment.neighbourhood.split(",")[1].trim());
     setCity(theApartment.neighbourhood && theApartment.neighbourhood.split(",")[0].trim());
-    setRoomType(theApartment.room_type);
-    setAccommodates(theApartment.accommodates);
-    setNumBathroom(Number(theApartment.bathrooms_text.split(" bath")[0]));
-    setNumBedroom(theApartment.bedrooms);
-    setNumBedPerRoom(theApartment.beds);
-    setAmenities(theApartment.amenities);
-    setPrice(Number(theApartment.price.substring(1)));
-    setMinNight(theApartment.minimum_nights);
+    setRoomType(theApartment.room_type && theApartment.room_type);
+    setAccommodates(theApartment.accommodates && theApartment.accommodates);
+    setNumBathroom(theApartment.bathrooms_text && Number(theApartment.bathrooms_text.split(" bath")[0]));
+    setNumBedroom(theApartment.bedrooms && theApartment.bedrooms);
+    setNumBedPerRoom(theApartment.beds && theApartment.beds);
+    setAmenities(theApartment.amenities && theApartment.amenities);
+    setPrice(theApartment.price && Number(theApartment.price.substring(1)));
+    setMinNight(theApartment.minimum_nights && theApartment.minimum_nights);
     setMaxNight(
       theApartment.maximum_nights > 31 ? 31 : theApartment.maximum_nights
     );
-    setbookable(theApartment.instant_bookable);
+    setbookable(theApartment.instant_bookable && theApartment.instant_bookable);
   }, [data, id]);
 
   function handleAmenity(e) {

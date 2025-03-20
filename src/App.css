@@ -174,6 +174,7 @@ table {
 a {
   text-decoration: none;
   color: inherit;
+  width: 100%;
 }
 
 #root {
@@ -273,7 +274,7 @@ a {
   gap: 1rem;
   padding: 1rem;
   max-width: 100%;
-  height: 4.5rem;
+  height: 5.875rem;
   background-color: var(--bg-menu-grey);
 }
 
@@ -303,13 +304,22 @@ a {
 .btn-menu {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
   font-family: var(--title-font), Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   text-decoration: none !important;
   color: var(--main-dark);
   background-color: transparent;
   border: none;
+  border-radius: 0.5rem;
   cursor: pointer;
+  width: 100%;
+  min-height: 3.875rem;
+}
+
+.btn-menu-active {
+  background-color: var(--bg-page-grey);
 }
 
 .search-modal {
@@ -409,6 +419,10 @@ a {
   border: 0.0625rem solid var(--licorice);
   border-radius: 0.5rem;
   overflow: hidden;
+}
+
+.card:target, .card:hover, .card:focus, .card:focus-visible, .card:active{
+  background-color: var(--ligth-yellow);
 }
 
 .card-image-container {
@@ -525,6 +539,10 @@ a {
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+}
+
+.btn-delete:target, .btn-delete:hover, .btn-delete:focus-visible, .btn-delete:focus, .btn-delete:active{
+  background-color: var(--danger);
 }
 
 /* ==> PropertyDetail Main <== */
@@ -1081,7 +1099,9 @@ a {
     background-color: transparent;
     border: none;
   }
-
+  .btn-menu-active {
+    background-color: var(--bg-page-grey);
+  }
   .menu-icon {
     height: 1.5rem;
   }
